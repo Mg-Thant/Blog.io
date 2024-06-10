@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+  font-family: "Poppins", sans-serif;
+}
+
+button {
+  cursor: pointer;
+}
+
+.main {
+  width: 60%;
+  margin: 0 auto;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 0;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+nav div a {
+  margin-right: 10px;
+}
+
+nav div a.active {
+  color: #fff;
+  background-color: #000;
+  padding: 8px;
+  border-radius: 6px;
+}
+
+.post {
+  width: 60%;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+
+.post img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.date {
+  color: #999;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.details {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.details img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+
+.details-title {
+  font-size: 28px;
+  font-weight: 800;
+}
+
+.description {
+  color: #333;
+}
+
+.clock-icon, .arrow-left-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.details-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.form-section {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.form-section p {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.form-section form div {
+  margin-top: 20px;
+}
+
+.form-section form div label {
+  display: block;
+  font: 18px;
+}
+
+.form-section form div input, textarea {
+  width: 100%;
+  border: 1px solid #222;
+  font-size: 18px;
+  padding: 8px;
+}
+
+.btn {
+  color: #fff;
+  background-color: #000;
+  padding: 10px 0;
+  border: none;
+  outline: none;
+  border-radius: 6px;
+  font-size: 18px;
+  width: 50%;
+  margin-top: 5px;
+}
+
+.details-footer {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
+.sm {
+  width: max-content;
+  padding: 9px;
+  font-size: 16px;
+  display: inline-block;
+  margin-right: 7px;
+}
+
+.details-footer p{
+  cursor: pointer;
+}
+
+.button{
+  border: none;
+  outline: none;
+  border-radius: 8px;
+  padding: 10px 13px;
+  font-weight: 500;
+  font-size: 15px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.error {
+  text-align: center;
+  margin-top: 11%;
+  color: #000;
+  user-select : none;
+}
+
+.error button {
+  margin-top: 8px;
+  background-color: #000;
+  color: #fff;
+}
+
+@media (max-width: 480px) {
+  .main,
+  .details,
+  .form-section {
+    width: 100%;
+  }
+}
