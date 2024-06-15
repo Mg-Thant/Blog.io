@@ -1,6 +1,7 @@
 import React from 'react'
 import { json, redirect, useRouteLoaderData } from 'react-router-dom';
 import PostDetails from '../Components/PostDetails';
+import { getToken } from '../util/auth';
 
 const Details = () => {
     const post = useRouteLoaderData("post-detail");
@@ -25,13 +26,16 @@ export const loader = async ({request , params}) => {
 }
 
 export const action = async ({request, params}) => {
+  const token = getToken();
   const res = await fetch(`http://localhost:8080/posts/${params.id}`, {
-    method : request.method
+    method : request.method,
+    headers : {
+      Authorization : "Bearer " + token
+    }
   })
 
   if(!res.ok) {
     // error handling
-    console.log(res)
     throw json({message : "Failed to delete"})  
   } else {
     return redirect("/");

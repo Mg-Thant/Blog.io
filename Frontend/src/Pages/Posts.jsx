@@ -18,7 +18,7 @@ export const loader = async () => {
   const res = await fetch("http://localhost:8080/posts");
   if (!res.ok) {
     throw json({
-      message: "Can't get our posts. Come back later"
+      message: "Can't get our posts. Come back later",
     });
   } else {
     const resData = await res.json();

@@ -1,8 +1,9 @@
 import { CalendarDaysIcon, ArrowLeftIcon } from "@heroicons/react/24/solid";
-import { Link, useSubmit } from "react-router-dom";
+import { Link, useRouteLoaderData, useSubmit } from "react-router-dom";
 
 const PostDetails = ({ post }) => {
   const { title, description, date, image } = post;
+  const isToken = useRouteLoaderData("root");
   const submit = useSubmit();
 
   const postDeleteHandler = () => {
@@ -34,7 +35,8 @@ const PostDetails = ({ post }) => {
       </div>
       <img src={image} alt={title} />
       <p className="description">{description}</p>
-      <div className="details-footer">
+      {
+        isToken && <div className="details-footer">
         <Link to={`edit-post`}>
           <p className="btn sm">Edit</p>
         </Link>
@@ -42,6 +44,7 @@ const PostDetails = ({ post }) => {
           Delete
         </p>
       </div>
+      }
       <hr />
     </section>
   );

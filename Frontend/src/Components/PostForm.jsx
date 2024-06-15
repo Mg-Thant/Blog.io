@@ -1,10 +1,14 @@
 import React from "react";
-import { Form, Link, json, redirect, useActionData } from "react-router-dom";
+import { Form, Link, json, redirect, useActionData, useNavigation } from "react-router-dom";
 import { ArrowLeftIcon } from "@heroicons/react/24/solid";
 import uuid from "react-uuid";
+import { getToken } from "../util/auth";
 
 const PostForm = ({ header, btnText, oldData, method }) => {
   const data = useActionData();
+  const navigation = useNavigation();
+
+  const isSubmitting = navigation.state === "submitting";
 
   return (
     <section className="form-section">
@@ -58,7 +62,9 @@ const PostForm = ({ header, btnText, oldData, method }) => {
           ></textarea>
         </div>
         <button type="submit" className="btn">
-          {btnText}
+          {
+            isSubmitting ? <span className="spinner"></span> : btnText  
+          }
         </button>
       </Form>
     </section>
@@ -70,6 +76,7 @@ export default PostForm;
 export const action = async ({ request, params }) => {
   const data = await request.formData();
   const method = request.method;
+  const token = getToken();
   const postData = {
     id: uuid(),
     title: data.get("title"),
@@ -88,10 +95,10 @@ export const action = async ({ request, params }) => {
     method,
     headers: {
       "Content-Type": "application/json",
+      Authorization : "Bearer " + token
     },
     body: JSON.stringify(postData),
   });
-  console.log(response)
 
   if (response.status === 422) {
     return response;

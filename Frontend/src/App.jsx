@@ -1,14 +1,15 @@
 import { createBrowserRouter, Form, RouterProvider } from "react-router-dom";
 import Main from "./Layout/Main";
-import Posts from "./Pages/Posts";
-import Create from "./Pages/Create";
 import { action as postCreateAction }  from "./Components/PostForm";
 import { action as postUpdateAction }  from "./Components/PostForm";
+import { action as authAction } from "./Pages/Auth";
 import { loader as postsLoader } from "./Pages/Posts";
-import Details, { action as deleteAction } from "./Pages/Details";
+import { loader as logoutLoader } from "./Pages/Logout";
+import  { action as deleteAction } from "./Pages/Details";
 import { loader as detailsLoader } from "./Pages/Details";
-import Edit from "./Pages/Edit";
-import Error from "./Pages/Error";
+import { checkTokenLoader, tokenLoader } from "./util/auth";
+import { Error, Posts, Create, Auth, ReAsk, Details, Edit } from "./Pages/index";
+
 
 function App() {
   const router = createBrowserRouter([
@@ -16,6 +17,8 @@ function App() {
       path: "/",
       element: <Main />,
       errorElement: <Error />,
+      id : "root",
+      loader : tokenLoader,
       children: [
         {
           index: true,
@@ -26,6 +29,20 @@ function App() {
           path: "/create-post",
           element: <Create />,
           action: postCreateAction,
+          loader : checkTokenLoader,
+        },
+        {
+          path : "/auth",
+          element : <Auth />,
+          action : authAction
+        },
+        {
+          path : "/logout",
+          loader : logoutLoader
+        },
+        {
+          path : "/re-ask",
+          element : <ReAsk />
         },
         {
           path: ":id",
@@ -40,7 +57,8 @@ function App() {
             {
               path: "edit-post",
               element: <Edit />,
-              action : postUpdateAction
+              action : postUpdateAction,
+              loader : checkTokenLoader,
             },
           ],
         },

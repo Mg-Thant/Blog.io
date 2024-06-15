@@ -13,7 +13,7 @@ const Error = () => {
           </Link>
         </>
       ) : (
-        <h1>Something went wrong. Please check your url</h1>
+        <h1>Faliled to fetch. Please check your url</h1>
       )}
     </div>
   );
