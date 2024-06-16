@@ -175,7 +175,7 @@ img {
   font: 18px;
 }
 
-.form-section form div input:not(".post-input"),
+.form-section form div input:not(.post-input),
 textarea {
   width: 100%;
   border: 1px solid #222;
