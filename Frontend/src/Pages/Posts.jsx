@@ -15,7 +15,7 @@ const Posts = () => {
 export default Posts;
 
 export const loader = async () => {
-  const res = await fetch("http://localhost:8080/posts");
+  const res = await fetch(`${import.meta.env.VITE_DOMAIN}/posts`);
   if (!res.ok) {
     throw json({
       message: "Can't get our posts. Come back later",

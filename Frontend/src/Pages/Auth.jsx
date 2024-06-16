@@ -27,7 +27,7 @@ export const action = async ({ request }) => {
     password: data.get("password"),
   };
 
-  const res = await fetch(`http://localhost:8080/${mode}`, {
+  const res = await fetch(`${import.meta.env.VITE_DOMAIN}/${mode}`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
