@@ -5,10 +5,10 @@ const Posts = () => {
   const posts = useLoaderData();
 
   return (
-    <>
+    <section className="posts">
       {posts.length > 0 &&
         posts.map((post) => <PostItem post={post} key={post.id} />)}
-    </>
+    </section>
   );
 };
 
@@ -19,7 +19,7 @@ export const loader = async () => {
   if (!res.ok) {
     throw json({
       message: "Can't get our posts. Come back later",
-    });
+    }, { status : 404});
   } else {
     const resData = await res.json();
     return resData.posts;

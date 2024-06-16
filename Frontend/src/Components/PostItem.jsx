@@ -6,6 +6,7 @@ const PostItem = ({ post }) => {
 
   return (
     <section className="post">
+      <div className="post-inner">
       <Link to={`${id}`}>
         <img src={image} alt={title} />
       </Link>
@@ -15,7 +16,7 @@ const PostItem = ({ post }) => {
       <p className="date">
         <CalendarDaysIcon className="clock-icon" /><span>{date}</span>
       </p>
-      <hr />
+      </div>
     </section>
   );
 };

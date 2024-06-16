@@ -27,15 +27,17 @@ const AuthForm = () => {
             name="email"
             id="email"
             placeholder="Enter your email"
+            className="post-input"
           />
         </div>
-        <div>
+        <div className="form-input">
           <label htmlFor="password">Password</label>
           <input
             type="password"
             name="password"
             id="password"
             placeholder="Enter your password"
+            className="post-input"
           />
         </div>
         <button className="btn login-btn" disabled={isSubmitting}>

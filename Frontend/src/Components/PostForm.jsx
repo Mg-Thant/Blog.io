@@ -27,6 +27,7 @@ const PostForm = ({ header, btnText, oldData, method }) => {
             id="form-title"
             name="title"
             defaultValue={oldData ? oldData.title : ""}
+            className="post-input"
           />
         </div>
 
@@ -38,6 +39,7 @@ const PostForm = ({ header, btnText, oldData, method }) => {
             id="form-image"
             name="image"
             defaultValue={oldData ? oldData.image : ""}
+            className="post-input"
           />
         </div>
         <div>
@@ -48,6 +50,7 @@ const PostForm = ({ header, btnText, oldData, method }) => {
             id="form-date"
             name="date"
             defaultValue={oldData && oldData.date}
+            className="post-input"
           />
         </div>
         <div>
@@ -59,6 +62,7 @@ const PostForm = ({ header, btnText, oldData, method }) => {
             cols="20"
             rows="3"
             defaultValue={oldData ? oldData.description : ""}
+            className="post-input"
           ></textarea>
         </div>
         <button type="submit" className="btn">

@@ -38,14 +38,13 @@ const PostDetails = ({ post }) => {
       {
         isToken && <div className="details-footer">
         <Link to={`edit-post`}>
-          <p className="btn sm">Edit</p>
+          <p className="sm">Edit</p>
         </Link>
-        <p className="btn sm" onClick={postDeleteHandler}>
+        <p className="sm" onClick={postDeleteHandler}>
           Delete
         </p>
       </div>
       }
-      <hr />
     </section>
   );
 };

@@ -5,12 +5,16 @@ const Error = () => {
 
   return (
     <div className="error">
-      {error.data ? (
+      {error && error.data.message ? (
         <>
           <h1>{error.data.message}</h1>
-          <Link to={"/"}>
-            <button className="button">Home</button>
-          </Link>
+          {error.status === 404 ? (
+            ""
+          ) : (
+            <Link to={"/"}>
+              <button className="button">Home</button>
+            </Link>
+          )}
         </>
       ) : (
         <h1>Faliled to fetch. Please check your url</h1>
